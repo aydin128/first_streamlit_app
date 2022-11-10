@@ -44,17 +44,4 @@ try:
   else:
     result = get_fruityvice_data(fruit_choice)
     streamlit.dataframe(result)
-    
-streamlit.stop()
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("USE DATABASE PC_RIVERY_DB")
-my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
-my_data_rows = my_cur.fetchall()
-streamlit.header("The fruit load list contains:")
-streamlit.dataframe(my_data_rows)
-
-to_add = streamlit.text_input('What fruit would you like to add?','Kiwi')
-streamlit.write('Thanks for adding ', to_add)
-
-my_cur.execute("insert into FRUIT_LOAD_LIST values('from streamlit')")
+  
