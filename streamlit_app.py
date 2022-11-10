@@ -47,7 +47,7 @@ try:
     streamlit.error("Please select a fruity to get information")
   else:
     result = get_fruityvice_data(fruit_choice)
-    streamlit.dataframe(fruityvice_normalized)
+    streamlit.dataframe(result)
     
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
