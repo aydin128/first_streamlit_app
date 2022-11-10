@@ -49,10 +49,10 @@ except:
 
 streamlit.header("The fruit load list contains:")
 def get_fruit_load_list():
-    with my_cnx.cursor() as my_cur
-    my_cur.execute("USE DATABASE PC_RIVERY_DB")
-    my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
-    return my_cur.fetchall()
+    with my_cnx.cursor() as my_cur:
+        my_cur.execute("USE DATABASE PC_RIVERY_DB")
+        my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
+        return my_cur.fetchall()
 
 if streamlit.button('Get Fruit Load List'):
     my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
