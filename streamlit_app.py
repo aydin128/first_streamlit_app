@@ -45,7 +45,7 @@ try:
   fruit_choice = streamlit.text_input('What fruit would you like information about?')
   if not fruit_choice:
     streamlit.error("Please select a fruity to get information")
-  else
+  else:
     result = get_fruityvice_data(fruit_choice)
     streamlit.dataframe(fruityvice_normalized)
     
